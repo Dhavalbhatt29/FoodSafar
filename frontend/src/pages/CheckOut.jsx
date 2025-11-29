@@ -12,7 +12,8 @@ import { FaCreditCard } from "react-icons/fa";
 import axios from 'axios';
 import { FaMobileScreenButton } from "react-icons/fa6";
 import { useNavigate } from 'react-router-dom';
-import { serverUrl } from '../App';
+import { serverUrl } from '../config/server';
+;
 import { addMyOrder, setTotalAmount } from '../redux/userSlice';
 function RecenterMap({ location }) {
   if (location.lat && location.lon) {
@@ -106,7 +107,7 @@ const openRazorpayWindow=(orderId,razorOrder)=>{
  key:import.meta.env.VITE_RAZORPAY_KEY_ID,
  amount:razorOrder.amount,
  currency:'INR',
- name:"Vingo",
+ name:"SafarMeal",
  description:"Food Delivery Website",
  order_id:razorOrder.id,
  handler:async function (response) {

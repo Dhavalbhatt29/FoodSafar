@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { serverUrl } from '../App'
+import { useNavigate } from 'react-router'
+import { serverUrl } from '../config/server';
 
 function UserOrderCard({ data }) {
     const navigate = useNavigate()

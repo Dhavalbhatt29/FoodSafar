@@ -5,11 +5,11 @@ import { FiShoppingCart } from "react-icons/fi";
 import { useDispatch, useSelector } from 'react-redux';
 import { RxCross2 } from "react-icons/rx";
 import axios from 'axios';
-import { serverUrl } from '../App';
+import { serverUrl } from '../config/server';
 import { setSearchItems, setUserData } from '../redux/userSlice';
 import { FaPlus } from "react-icons/fa6";
 import { TbReceipt2 } from "react-icons/tb";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 function Nav() {
     const { userData, currentCity ,cartItems} = useSelector(state => state.user)
         const { myShopData} = useSelector(state => state.owner)
@@ -60,7 +60,7 @@ handleSearchItems()
 
 
 
-            <h1 className='text-3xl font-bold mb-2 text-[#ff4d2d]'>Vingo</h1>
+            <h1 className='text-3xl font-bold mb-2 text-[#ff4d2d]'>SafarMeal</h1>
             {userData.role == "user" && <div className='md:w-[60%] lg:w-[40%] h-[70px] bg-white shadow-xl rounded-lg items-center gap-[20px] hidden md:flex'>
                 <div className='flex items-center w-[30%] overflow-hidden gap-[10px] px-[10px] border-r-[2px] border-gray-400'>
                     <FaLocationDot size={25} className=" text-[#ff4d2d]" />
@@ -87,11 +87,11 @@ handleSearchItems()
                     <div className='hidden md:flex items-center gap-2 cursor-pointer relative px-3 py-1 rounded-lg bg-[#ff4d2d]/10 text-[#ff4d2d] font-medium' onClick={()=>navigate("/my-orders")}>
                       <TbReceipt2 size={20}/>
                       <span>My Orders</span>
-                      <span className='absolute -right-2 -top-2 text-xs font-bold text-white bg-[#ff4d2d] rounded-full px-[6px] py-[1px]'>0</span>
+                      
                     </div>
                      <div className='md:hidden flex items-center gap-2 cursor-pointer relative px-3 py-1 rounded-lg bg-[#ff4d2d]/10 text-[#ff4d2d] font-medium' onClick={()=>navigate("/my-orders")}>
                       <TbReceipt2 size={20}/>
-                      <span className='absolute -right-2 -top-2 text-xs font-bold text-white bg-[#ff4d2d] rounded-full px-[6px] py-[1px]'>0</span>
+                      
                     </div>
                 </>: (
                     <>
