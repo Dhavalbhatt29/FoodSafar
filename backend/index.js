@@ -17,9 +17,14 @@ import { socketHandler } from "./socket.js";
 const app = express();
 const server = http.createServer(app);
 
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://food-safar-wshv.vercel.app"
+];
+
 const io = new Server(server, {
   cors: {
-    origin: ["http://localhost:5173", "https://safarmeal-f717.vercel.app/"],
+    origin: allowedOrigins,
     credentials: true,
     methods: ["POST", "GET"],
   },
@@ -27,14 +32,14 @@ const io = new Server(server, {
 
 app.set("io", io);
 
-const port = process.env.PORT ;
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://food-safar-wshv.vercel.app/"],
+    origin: allowedOrigins,
     methods: "GET,POST,PUT,PATCH,DELETE",
     credentials: true,
   })
 );
+
 
 app.use(express.json());
 app.use(cookieParser());
